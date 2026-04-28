@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang ="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gavin Johnson's Portfolio :: Guestbook</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Digital Portfolio</h1>
+    </header>
+
+    <nav><b>
+            <a href="index.html">Home</a> &NonBreakingSpace;
+            <a href="aboutme.html">About Me</a> &NonBreakingSpace;
+            <a href="projects.html"> Projects</a> &NonBreakingSpace;
+            <a href="experience.html"> Experience</a> &NonBreakingSpace;
+            <a href="skills.html">Skills</a> &NonBreakingSpace;
+            <a href="guestbook.html"> Guestbook</a> &NonBreakingSpace;
+            <a href="contact.html"> Contact Me</a> &NonBreakingSpace;
+    </b></nav>
+    <main>
+        <h2>Sign My Guestbook</h2>
+        <p>Please leave a comment below! I'd love to hear from you.</p>
+        
+        <form id="guestbookForm" class="responsive-form">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="website">Website (optional)</label>
+            <input type="text" id="website" name="website">
+            
+            <label for="myComments">Comments *</label>
+            <textarea id="myComments" name="myComments" rows="4" cols="50" required></textarea>
+            
+            <label for="rating">Rate my site:</label>
+            <select id="rating" name="rating">
+                <option value="Excellent">Excellent 🌟🌟🌟🌟🌟</option>
+                <option value="Good">Good 🌟🌟🌟🌟</option>
+                <option value="Average">Average 🌟🌟🌟</option>
+                <option value="Fair">Fair 🌟🌟</option>
+                <option value="Poor">Poor 🌟</option>
+            </select>
+            
+            <input type="submit" value="Sign Guestbook">
+        </form>
+        
+        <details>
+            <summary>About the Guestbook</summary>
+            <p>Your comments help me improve my portfolio. Thank you for taking the time to share your thoughts!</p>
+        </details>
+    </main>
+    
+    <footer>
+        <i><small>
+            Copyright &copy; 2026 Gavin Johnson <br>
+        </small></i>
+    </footer>
+    
+    <script>
+        function showGuestbookPopup(name, rating, commentLength) {
+            var message = "Thank you " + name + " for signing my guestbook!\n\n";
+            message += "Rating: " + rating + "\n";
+            message += "Comment length: " + commentLength + " characters\n\n";
+            message += "I appreciate your feedback!";
+            alert(message);
+        }
+        
+        document.getElementById('guestbookForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var name = document.getElementById('name').value;
+            var comments = document.getElementById('myComments').value;
+            var rating = document.getElementById('rating').value;
+            
+            if(name === "" || comments === "") {
+                alert("Please fill out both Name and Comments fields!");
+                return false;
+            }
+            
+            showGuestbookPopup(name, rating, comments.length);
+            
+            document.getElementById('guestbookForm').reset();
+            
+            return true;
+        });
+    </script>
+</body>
+</html>

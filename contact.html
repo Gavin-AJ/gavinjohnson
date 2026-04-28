@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang ="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gavin Johnson's Portfolio :: Contact Me</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Digital Portfolio</h1>
+    </header>
+    
+    <nav><b>
+            <a href="index.html">Home</a> &NonBreakingSpace;
+            <a href="aboutme.html">About Me</a> &NonBreakingSpace;
+            <a href="projects.html"> Projects</a> &NonBreakingSpace;
+            <a href="experience.html"> Experience</a> &NonBreakingSpace;
+            <a href="skills.html">Skills</a> &NonBreakingSpace;
+            <a href="guestbook.html"> Guestbook</a> &NonBreakingSpace;
+            <a href="contact.html"> Contact Me</a> &NonBreakingSpace;
+    </b></nav>
+
+    <main>
+        <h2>Let's get in touch!</h2>
+        <p>I'm always open to discussing web design, opportunities, or just connecting! Feel free to reach out to me using the methods provided below.</p>
+            <h3>Contact Information</h3>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:gj04120@georgiasouthern.edu"> gj04120@georgiasouthern.edu </a> </li>
+                    <li><strong>Phone:</strong> <a href="tel:+19128563648">(912)-856-3648 </a> </li>
+                </ul>
+        
+        <h3>Send me a direct message</h3>
+        <form id="contactForm" class="responsive-form">
+            <label for="contactName">Your Name *</label>
+            <input type="text" id="contactName" name="contactName" required>
+            
+            <label for="contactEmail">Your Email *</label>
+            <input type="email" id="contactEmail" name="contactEmail" required>
+            
+            <label for="contactSubject">Subject</label>
+            <input type="text" id="contactSubject" name="contactSubject">
+            
+            <label for="contactMessage">Message *</label>
+            <textarea id="contactMessage" rows="4" required></textarea>
+            
+            <input type="submit" value="Send Message">
+        </form>
+        
+        <details>
+            <summary>Response Time</summary>
+            <p>I typically respond to emails within 24-48 hours. For urgent matters, please call my phone number.</p>
+        </details>
+    </main>
+
+    <footer>
+        <i><small>
+            Copyright &copy; 2026 Gavin Johnson <br>
+        </small></i>
+    </footer>
+    
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var name = document.getElementById('contactName').value;
+            var email = document.getElementById('contactEmail').value;
+            var message = document.getElementById('contactMessage').value;
+            
+            if(name === "" || email === "" || message === "") {
+                alert("Please fill out all required fields (Name, Email, and Message)");
+                return false;
+            }
+            
+            if(email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+            
+            alert("Thanks " + name + "! Your message has been sent.\n\nI will reply to " + email + " as soon as possible.\n\nMessage: " + message.substring(0, 100) + (message.length > 100 ? "..." : ""));
+            
+            document.getElementById('contactForm').reset();
+            return true;
+        });
+    </script>
+</body>
+</html>
